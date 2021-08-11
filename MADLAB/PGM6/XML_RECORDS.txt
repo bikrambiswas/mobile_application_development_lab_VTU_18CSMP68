@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<records>
+
+    <place>
+        <name>India</name>
+        <lat> 20.59</lat>
+        <long>78.96 </long>
+        <temperature>30</temperature>
+        <humidity> 83%</humidity>
+
+    </place>
+
+    <place>
+        <name>Ranchi</name>
+        <lat> 23.34 </lat>
+        <long> 85.30 </long>
+        <temperature>28</temperature>
+        <humidity> 84%</humidity>
+    </place>
+
+    <place>
+        <name>Patna</name>
+        <lat> 25.59 </lat>
+        <long>85.13 </long>
+        <temperature>31</temperature>
+        <humidity> 73%</humidity>
+    </place>
+
+    <place>
+        <name>Varanashi</name>
+        <lat> 25.31 </lat>
+        <long>82.97 </long>
+        <temperature>34</temperature>
+        <humidity> 68%</humidity>
+    </place>
+
+    <place>
+        <name>Mumbai</name>
+        <lat> 19.07 </lat>
+        <long>72.85 </long>
+        <temperature>30</temperature>
+        <humidity> 83%</humidity>
+    </place>
+
+
+</records>

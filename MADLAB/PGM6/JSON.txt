@@ -1,0 +1,82 @@
+[17:16, 6/27/2021] Kumar Shanu CS: <?xml version="1.0"?>
+<records>
+
+    <place>
+        <name>India</name>
+        <lat> 20.59</lat>
+        <long>78.96 </long>
+        <temperature>30</temperature>
+        <humidity> 83%</humidity>
+
+    </place>
+
+    <place>
+        <name>Ranchi</name>
+        <lat> 23.34 </lat>
+        <long> 85.30 </long>
+        <temperature>28</temperature>
+        <humidity> 84%</humidity>
+    </place>
+
+    <place>
+        <name>Patna</name>
+        <lat> 25.59 </lat>
+        <long>85.13 </long>
+        <temperature>31</temperature>
+        <humidity> 73%</humidity>
+    </place>
+
+    <place>
+        <name>Varanashi</name>
+        <lat> 25.31 </lat>
+        <long>82.97 </long>
+        <temperature>34</temperature>
+        <humidity> 68%</humidity>
+    </place>
+
+    <plac…
+[17:17, 6/27/2021] Kumar Shanu CS: [
+
+{
+"name" : "India",
+"lat" : "20.59",
+"long" : "78.415 ",
+"temperature" : "30 ",
+"humidity" : "83%"
+},
+
+{
+"name" : "Ranchi",
+"lat" : "23.34",
+"long" : "85.30 ",
+"temperature" : "28 ",
+"humidity" : "84%"
+
+},
+
+{
+"name" : "Patna",
+"lat" : "25.59",
+"long" : "85.13 ",
+"temperature" : "31 ",
+"humidity" : "73%"
+},
+
+{
+"name" : "Varanashi",
+"lat" : "25.31",
+"long" : "82.97 ",
+"temperature" : "34 ",
+"humidity" : "68%"
+},
+{
+"name" : "Mumbai",
+"lat" : "19.07",
+"long" : "72.85 ",
+"temperature" : "30 ",
+"humidity" : "83%"
+}
+
+
+
+]

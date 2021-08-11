@@ -1,0 +1,243 @@
+package com.example.myapplication;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+
+import java.text.DecimalFormat;
+
+
+public class MainActivity extends AppCompatActivity {
+
+
+    Button button0, button1, button2, button3, button4, button5, button6,
+            button7, button8, button9, buttonAdd, buttonSub, buttonDivision,
+            buttonMul, button10, buttonC, buttonEqual;
+
+    EditText inputnum;
+    TextView result;
+
+    private double mValueOne= Double.NaN, mValueTwo;
+    boolean crunchifyAddition;
+
+
+    private static final char ADDITION = '+';
+    private static final char SUBTRACTION = '-';
+    private static final char MULTIPLICATION = '*';
+    private static final char DIVISION = '/';
+
+    private char CURRENT_ACTION;
+    private DecimalFormat decimalFormat;
+
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        decimalFormat = new DecimalFormat("#.##########");
+
+        button0 = findViewById(R.id.bt0);
+        button1 = findViewById(R.id.bt1);
+        button2 = findViewById(R.id.bt2);
+        button3 = findViewById(R.id.bt3);
+        button4 = findViewById(R.id.bt4);
+        button5 = findViewById(R.id.bt5);
+        button6 = findViewById(R.id.bt6);
+        button7 = findViewById(R.id.bt7);
+        button8 = findViewById(R.id.bt8);
+        button9 = findViewById(R.id.bt9);
+        button10 = findViewById(R.id.btdot);
+        buttonAdd = findViewById(R.id.btadd);
+        buttonSub = findViewById(R.id.btsub);
+        buttonDivision = findViewById(R.id.btdiv);
+        buttonMul = findViewById(R.id.btmul);
+        buttonC = findViewById(R.id.btclear);
+        buttonEqual = findViewById(R.id.bteq);
+
+        inputnum = findViewById(R.id.txtview);
+        result = findViewById(R.id.result);
+
+        button0.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                inputnum.setText(inputnum.getText() + "0");
+            }
+        });
+
+        button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                inputnum.setText(inputnum.getText() + "1");
+            }
+        });
+
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                inputnum.setText(inputnum.getText() + "2");
+            }
+        });
+
+        button3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                inputnum.setText(inputnum.getText() + "3");
+            }
+        });
+
+        button4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                inputnum.setText(inputnum.getText() + "4");
+            }
+        });
+
+        button5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                inputnum.setText(inputnum.getText() + "5");
+            }
+        });
+
+        button6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                inputnum.setText(inputnum.getText() + "6");
+            }
+        });
+
+        button7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                inputnum.setText(inputnum.getText() + "7");
+            }
+        });
+
+        button8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                inputnum.setText(inputnum.getText() + "8");
+            }
+        });
+
+        button9.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                inputnum.setText(inputnum.getText() + "9");
+            }
+        });
+
+        button10.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                inputnum.setText(inputnum.getText() + ".");
+            }
+        });
+
+        buttonAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                computeCalculation();
+                CURRENT_ACTION = ADDITION;
+                result.setText(decimalFormat.format(mValueOne) + "+");
+                inputnum.setText(null);
+            }
+        });
+
+        buttonSub.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                computeCalculation();
+                CURRENT_ACTION = SUBTRACTION;
+                result.setText(decimalFormat.format(mValueOne) + "-");
+                inputnum.setText(null);
+            }
+        });
+
+        buttonMul.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                computeCalculation();
+                CURRENT_ACTION = MULTIPLICATION;
+                result.setText(decimalFormat.format(mValueOne) + "*");
+                inputnum.setText(null);
+            }
+        });
+
+
+        buttonDivision.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                computeCalculation();
+                CURRENT_ACTION = DIVISION;
+                result.setText(decimalFormat.format(mValueOne) + "/");
+                inputnum.setText(null);
+            }
+        });
+
+        buttonC.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(inputnum.getText().length() > 0) {
+                    CharSequence currentText = inputnum.getText();
+                    inputnum.setText(currentText.subSequence(0, currentText.length()-1));
+                }
+                else {
+                    mValueOne = Double.NaN;
+                    mValueTwo = Double.NaN;
+                    inputnum.setText("");
+                    result.setText("");
+                }
+            }
+        });
+
+        buttonEqual.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                computeCalculation();
+                result.setText(result.getText().toString() +
+                        decimalFormat.format(mValueTwo) + " = " + decimalFormat.format(mValueOne));
+                mValueOne = Double.NaN;
+                CURRENT_ACTION = '0';
+            }
+        });
+
+    }
+
+    private void computeCalculation()
+    {
+        if(!Double.isNaN(mValueOne))
+        {
+            mValueTwo = Double.parseDouble(inputnum.getText().toString());
+            inputnum.setText(null);
+
+            if(CURRENT_ACTION == ADDITION)
+                mValueOne = this.mValueOne + mValueTwo;
+            else if(CURRENT_ACTION == SUBTRACTION)
+                mValueOne = this.mValueOne - mValueTwo;
+            else if (CURRENT_ACTION == MULTIPLICATION)
+                mValueOne = this.mValueOne * mValueTwo;
+            else if (CURRENT_ACTION == DIVISION)
+                mValueOne = this.mValueOne / mValueTwo;
+        }
+        else
+        {
+            try
+            {
+                mValueOne = Double.parseDouble(inputnum.getText().toString());
+            }
+            catch (Exception e)
+            {
+
+            }
+        }
+    }
+}
